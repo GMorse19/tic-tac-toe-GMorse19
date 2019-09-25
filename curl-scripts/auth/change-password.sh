@@ -1,4 +1,4 @@
-curl "https://sei-library-api.herokuapp.com/change-password" \
+curl "https://tic-tac-toe-wdi-production.herokuapp.com/change-password" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
