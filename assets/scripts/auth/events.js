@@ -42,9 +42,9 @@ const onSignOut = function () {
 
 const onBoxClick = function () {
   event.preventDefault()
-  //const form = event.target
-  //const formData = getFormFields(form)
-  api.boxClick()
+  // calculate here
+  const index = $('#box0').attr('data-index')
+  api.boxClick(index)
     .then(ui.onBoxClickSuccess)
     .catch(ui.onBoxClickFailure)
 }

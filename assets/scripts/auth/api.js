@@ -40,9 +40,18 @@ const signOut = function () {
   })
 }
 
+const boxClick = function () {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/box-click',
+    data: formData
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  boxClick
 }
