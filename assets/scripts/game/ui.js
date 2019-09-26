@@ -16,8 +16,8 @@ const failureMessage = function (newText) {
 }
 
 const onCreateGameSuccess = function (responseData) {
-  successMessage('Big X!')
-  console.log('win' + responseData)
+  successMessage('Created Game!')
+  console.log('YAY' + responseData)
   store.game = responseData.game
 }
 
@@ -36,9 +36,14 @@ const onUpdateFailure = function () {
   console.log('lose')
 }
 
+const invalidMove = function () {
+  failureMessage('Invalid Move!!')
+}
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  invalidMove
 }
