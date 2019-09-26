@@ -40,21 +40,9 @@ const signOut = function () {
   })
 }
 
-const boxClick = function (formData) {
-  return $.ajax({
-    method: 'POST',
-    url: config.apiUrl + '/box-click',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: formData
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  boxClick
+  signOut
 }

@@ -40,20 +40,9 @@ const onSignOut = function () {
     .catch(ui.onSignOutFailure)
 }
 
-const onBoxClick = function (event) {
-  event.preventDefault()
-  // calculate here
-  const form = event.target // $('.box').attr('data-index')
-  const formData = getFormFields(form)
-  api.boxClick(formData)
-    .then(ui.onBoxClickSuccess)
-    .catch(ui.onBoxClickFailure)
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut,
-  onBoxClick
+  onSignOut
 }

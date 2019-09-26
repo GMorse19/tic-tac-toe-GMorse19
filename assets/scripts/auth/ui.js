@@ -49,14 +49,6 @@ const onSignOutFailure = function () {
   failureMessage('⚠️ABORT! ABORT!⚠️')
 }
 
-const onBoxClickSuccess = function () {
-  successMessage('Big X!')
-}
-
-const onBoxClickFailure = function () {
-  failureMessage('⚠️ABORT! ABORT!⚠️')
-}
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -65,7 +57,5 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure,
-  onBoxClickSuccess,
-  onBoxClickFailure
+  onSignOutFailure
 }
