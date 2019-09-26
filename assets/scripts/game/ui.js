@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store')
+
 const successMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('failure')
@@ -16,6 +18,7 @@ const failureMessage = function (newText) {
 const onCreateGameSuccess = function (responseData) {
   successMessage('Big X!')
   console.log('win' + responseData)
+  store.game = responseData.game
 }
 
 const onCreateGameFailure = function () {
@@ -23,7 +26,19 @@ const onCreateGameFailure = function () {
   console.log('lose')
 }
 
+const onUpdateSuccess = function (responseData) {
+  successMessage('Big X!')
+  console.log('win' + responseData)
+}
+
+const onUpdateFailure = function () {
+  failureMessage('⚠️ABORT! ABORT!⚠️')
+  console.log('lose')
+}
+
 module.exports = {
   onCreateGameSuccess,
-  onCreateGameFailure
+  onCreateGameFailure,
+  onUpdateSuccess,
+  onUpdateFailure
 }
