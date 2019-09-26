@@ -13,8 +13,6 @@
     </head>
     <body>
       <h1>Tic-Tac-Toe</h1>
-      <h2>API Token Authentication</h2>
-      <h2> This is a toy application. Do not enter real passwords, or passwords you have used anywhere else!</h2>
 
       <h2 id="message"></h2>
 
@@ -48,22 +46,28 @@
       <form id="sign-out">
       <button>Sign Out</button>
     </form>
+    <br>
+
+      <section>
+        <h2 id="result-message"></h2>
+      </section>
+<br>
   <section id="gameBoard">
     <div class="container">
       <div class="row">
-            <button id="box0" data-index="0" class="col-2 box alt-color">square0</button>
-            <button id="box1" class="col-2 box alt-color">square1</button>
-            <button id="box2" class="col-2 box alt-color">square2</button>
+            <button id="0" name="boxes[index]" data-index="0" class="col-2 box alt-color">square0</button>
+            <button id="1" name="boxes[index]" data-index="1" class="col-2 box alt-color">square1</button>
+            <button id="2" name="boxes[index]" data-index="2" class="col-2 box alt-color">square2</button>
       </div>
       <div class="row">
-            <button id="box3" class="col-2 box alt-color">square3</button>
-            <button id="box4" class="col-2 box alt-color">square4</button>
-            <button id="box5" class="col-2 box alt-color">square5</button>
+            <button id="3" name="boxes[index]" data-index="3" class="col-2 box alt-color">square3</button>
+            <button id="4" name="boxes[index]" data-index="4" class="col-2 box alt-color">square4</button>
+            <button id="5" name="boxes[index]" data-index="5" class="col-2 box alt-color">square5</button>
       </div>
       <div class="row">
-            <button id="box6" class="col-2 box alt-color">square6</button>
-            <button id="box7" class="col-2 box alt-color">square7</button>
-            <button id="box8" class="col-2 box alt-color">square8</button>
+            <button id="6" name="boxes[index]" data-index="6" class="col-2 box alt-color">square6</button>
+            <button id="7" name="boxes[index]" data-index="7" class="col-2 box alt-color">square7</button>
+            <button id="8" name="boxes[index]" data-index="8" class="col-2 box alt-color">square8</button>
       </div>
     </div>
   </section>

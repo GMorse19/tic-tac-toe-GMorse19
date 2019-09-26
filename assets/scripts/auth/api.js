@@ -40,10 +40,13 @@ const signOut = function () {
   })
 }
 
-const boxClick = function () {
+const boxClick = function (formData) {
   return $.ajax({
-    method: 'PATCH',
+    method: 'POST',
     url: config.apiUrl + '/box-click',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: formData
   })
 }

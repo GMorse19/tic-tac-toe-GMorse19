@@ -40,11 +40,12 @@ const onSignOut = function () {
     .catch(ui.onSignOutFailure)
 }
 
-const onBoxClick = function () {
+const onBoxClick = function (event) {
   event.preventDefault()
   // calculate here
-  const index = $('#box0').attr('data-index')
-  api.boxClick(index)
+  const form = event.target // $('.box').attr('data-index')
+  const formData = getFormFields(form)
+  api.boxClick(formData)
     .then(ui.onBoxClickSuccess)
     .catch(ui.onBoxClickFailure)
 }
