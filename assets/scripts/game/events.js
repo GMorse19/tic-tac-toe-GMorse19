@@ -12,23 +12,22 @@ const onCreateGame = function (event) {
   $('.box').text('')
 }
 
-let player = 'X'
-
 const switchPlayer = function () {
-  if (player === 'X') {
-    player = 'O'
-    // console.log(player)
+  if (store.turn === 'X') {
+    store.turn = 'O'
   } else {
-    player = 'X'
-    // console.log(player)
+    store.turn = 'X'
   }
-  playerTurn()
+  // playerTurn()
 }
 
-const playerTurn = function () {
-  store.turn += 1
-}
-
+// const playerTurn = function () {
+//   store.turn += 1
+//   // need to make store.turn = 0 when new game begins
+//   if (store.turn === 9) {
+//     store.turn = 0
+//   }
+// }
 
 const onUpdate = function (event) {
   event.preventDefault()
@@ -36,7 +35,7 @@ const onUpdate = function (event) {
   const value = store.turn
   console.log('onUpdate worked!')
   if ($(event.target).html() === '') {
-    $(event.target).html(player)
+    $(event.target).html(store.turn)
     switchPlayer()
   } else {
     ui.invalidMove()
@@ -45,6 +44,12 @@ const onUpdate = function (event) {
     .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }
+
+// const checkWin = function () {
+//   if (store.game.cells === 'X') {
+//     console.log('X is TRUE')
+//   }
+// }
 
 module.exports = {
   onCreateGame,
