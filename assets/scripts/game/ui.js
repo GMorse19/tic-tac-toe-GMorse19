@@ -15,6 +15,12 @@ const failureMessage = function (newText) {
   $('#message').addClass('failure')
 }
 
+const failureMessage2 = function (newText) {
+  $('#message2').text(newText)
+  $('#message2').removeClass('success')
+  $('#message2').addClass('failure')
+}
+
 const onCreateGameSuccess = function (responseData) {
   successMessage('Created Game!')
   console.log('onCreateGameSuccess data ' + responseData)
@@ -82,7 +88,7 @@ const onUpdateFailure = function () {
 }
 
 const invalidMove = function () {
-  failureMessage('Invalid Move!!')
+  failureMessage2('Invalid Move!!')
 }
 
 module.exports = {

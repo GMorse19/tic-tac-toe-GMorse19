@@ -31,20 +31,23 @@ const switchPlayer = function () {
 
 const onUpdate = function (event) {
   event.preventDefault()
-  const index = $(event.target).attr('data-index')
-  const value = store.turn
-  console.log('onUpdate worked!')
-  if ($(event.target).html() === '') {
-    $(event.target).html(store.turn)
-    switchPlayer()
+  if (store.game.over === false) {
+    const index = $(event.target).attr('data-index')
+    const value = store.turn
+    console.log('onUpdate worked!')
+    if ($(event.target).html() === '') {
+      $(event.target).html(store.turn)
+      switchPlayer()
+    } else {
+      ui.invalidMove()
+    }
+    api.update(index, value)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.onUpdateFailure)
   } else {
     ui.invalidMove()
   }
-  api.update(index, value)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.onUpdateFailure)
 }
-
 // const checkWin = function () {
 //   if (store.game.cells === 'X') {
 //     console.log('X is TRUE')
