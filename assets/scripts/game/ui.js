@@ -17,23 +17,26 @@ const failureMessage = function (newText) {
 
 const onCreateGameSuccess = function (responseData) {
   successMessage('Created Game!')
-  console.log('YAY' + responseData)
+  console.log('onCreateGameSuccess data ' + responseData)
   store.game = responseData.game
+  console.log(store.game)
 }
 
 const onCreateGameFailure = function () {
   failureMessage('⚠️ABORT! ABORT!⚠️')
-  console.log('lose')
+  console.log('onCreateGameFailure')
 }
 
 const onUpdateSuccess = function (responseData) {
-  successMessage('Big X!')
-  console.log('win' + responseData)
+  successMessage('Updated Game!')
+  console.log('onUpdateSuccess data ' + responseData)
+  store.game = responseData.game
+  console.log(store.game)
 }
 
 const onUpdateFailure = function () {
-  failureMessage('⚠️ABORT! ABORT!⚠️')
-  console.log('lose')
+  failureMessage('Bad Update ⚠️ABORT! ABORT!⚠️')
+  console.log('onUpdateFailure')
 }
 
 const invalidMove = function () {

@@ -19,7 +19,7 @@ const onSignUpSuccess = function () {
 }
 
 const onSignUpFailure = function () {
-  failureMessage('⚠️ABORT! ABORT!⚠️')
+  failureMessage('Sign Up Failure ⚠️ABORT! ABORT!⚠️')
 }
 
 const onSignInSuccess = function (responseData) {
@@ -30,7 +30,7 @@ const onSignInSuccess = function (responseData) {
 }
 
 const onSignInFailure = function () {
-  failureMessage('⚠️RUN!!!⚠️')
+  failureMessage('Sign In Failure ⚠️RUN!!!⚠️')
 }
 
 const onChangePasswordSuccess = function () {
@@ -38,7 +38,7 @@ const onChangePasswordSuccess = function () {
 }
 
 const onChangePasswordFailure = function () {
-  failureMessage('🔥THE END IS NIGH!!🔥')
+  failureMessage('PassWord Change Failed 🔥THE END IS NIGH!!🔥')
 }
 
 const onSignOutSuccess = function () {
@@ -46,7 +46,7 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  failureMessage('⚠️ABORT! ABORT!⚠️')
+  failureMessage('Sign Out Failed ⚠️ABORT! ABORT!⚠️')
 }
 
 module.exports = {
