@@ -23,6 +23,7 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (responseData) {
+  $('#sign-in').trigger('reset')
   successMessage('You are signed in')
   console.log('Response data is ' + responseData)
   store.user = responseData.user
@@ -30,6 +31,7 @@ const onSignInSuccess = function (responseData) {
 }
 
 const onSignInFailure = function () {
+  $('#sign-in').trigger('reset')
   failureMessage('Sign In Failure ⚠️RUN!!!⚠️')
 }
 
@@ -39,6 +41,7 @@ const onChangePasswordSuccess = function () {
 }
 
 const onChangePasswordFailure = function () {
+  $('#change-password').trigger('reset')
   failureMessage('PassWord Change Failed 🔥THE END IS NIGH!!🔥')
 }
 
