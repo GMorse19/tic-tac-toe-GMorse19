@@ -6,6 +6,7 @@ const ui = require('./ui')
 
 const onCreateGame = function (event) {
   event.preventDefault()
+  $('.show-gameBoard').show()
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)

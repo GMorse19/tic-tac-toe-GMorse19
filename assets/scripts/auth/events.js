@@ -6,6 +6,7 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
+  $('.hide-signUp').hide()
   const form = event.target
   const formData = getFormFields(form)
   api.signUp(formData)
@@ -15,6 +16,9 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
+  $('.hide-signUp').hide()
+  $('.hide-signIn').hide()
+  $('.show-signOut').show()
   const form = event.target
   const formData = getFormFields(form)
   api.signIn(formData)
@@ -33,6 +37,10 @@ const onChangePassword = function (event) {
 
 const onSignOut = function () {
   event.preventDefault()
+  $('.hide-signUp').show()
+  $('.hide-signIn').show()
+  $('.show-signOut').hide()
+  $('.show-gameBoard').hide()
   //const form = event.target
   //const formData = getFormFields(form)
   api.signOut()

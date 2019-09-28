@@ -23,7 +23,7 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (responseData) {
-  successMessage('Signed in successfully!')
+  successMessage('You are signed in')
   console.log('Response data is ' + responseData)
   store.user = responseData.user
   console.log('./store is ' + store)
@@ -34,6 +34,7 @@ const onSignInFailure = function () {
 }
 
 const onChangePasswordSuccess = function () {
+  $('#change-password').trigger('reset')
   successMessage('Changed Password successfully!')
 }
 

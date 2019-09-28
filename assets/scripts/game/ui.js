@@ -15,14 +15,25 @@ const failureMessage = function (newText) {
   $('#message').addClass('failure')
 }
 
-const failureMessage2 = function (newText) {
-  $('#message2').text(newText)
-  $('#message2').removeClass('success')
-  $('#message2').addClass('failure')
+const numberOfGamesMessage = function (newText) {
+  $('#game-count').text(newText)
+  $('#game-count').removeClass('success')
+  $('#game-count').addClass('failure')
 }
 
+// const failureMessage2 = function (newText) {
+//   $('#message2').text(newText)
+//   $('#message2').removeClass('success')
+//   $('#message2').addClass('failure')
+// }
+let numberOfGames = 0
+
 const onCreateGameSuccess = function (responseData) {
-  successMessage('Created Game!')
+  numberOfGames += 1
+  store.count = numberOfGames
+  console.log('games: ' + store.count)
+  numberOfGamesMessage(store.count)
+  successMessage("Player X's move")
   console.log('onCreateGameSuccess data ' + responseData)
   store.game = responseData.game
   console.log(store.game)
@@ -34,7 +45,7 @@ const onCreateGameFailure = function () {
 }
 
 let playerMoves = 0
-
+let playerTurn = 0
 // const checkFull = function () {
 //   for (let i = 0; i < store.game.cells; i++) {
 //     if (store.game.cells[i] === '') {
@@ -45,8 +56,13 @@ let playerMoves = 0
 // }
 
 const onUpdateSuccess = function (responseData) {
-  successMessage('Updated Game!')
-  console.log('onUpdateSuccess data ' + responseData)
+  playerTurn += 1
+  if (playerTurn % 2 === 0) {
+    successMessage("Player X's move")
+  } else {
+    successMessage("Player O's move")
+  }
+  // console.log('onUpdateSuccess data ' + responseData)
   store.game = responseData.game
   console.log(store.game.cells)
   const checkWin = function () {
@@ -95,7 +111,7 @@ const onUpdateFailure = function () {
 }
 
 const invalidMove = function () {
-  failureMessage2('Invalid Move!!')
+  failureMessage('Invalid Move!!')
 }
 
 module.exports = {
@@ -103,5 +119,6 @@ module.exports = {
   onCreateGameFailure,
   onUpdateSuccess,
   onUpdateFailure,
-  invalidMove
+  invalidMove,
+  numberOfGamesMessage
 }
