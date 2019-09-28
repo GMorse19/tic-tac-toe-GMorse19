@@ -10,12 +10,13 @@ const onCreateGame = function (event) {
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
   $('.box').text('')
+  store.turn = 'X'
 }
-
+// This function needs to reference html
 const switchPlayer = function () {
   if (store.turn === 'X') {
     store.turn = 'O'
-  } else {
+  } else if (store.turn === 'O') {
     store.turn = 'X'
   }
   // playerTurn()
@@ -34,12 +35,13 @@ const onUpdate = function (event) {
   if (store.game.over === false) {
     const index = $(event.target).attr('data-index')
     const value = store.turn
-    console.log('onUpdate worked!')
-    if ($(event.target).html() === '') {
-      $(event.target).html(store.turn)
-      switchPlayer()
-    } else {
+    console.log('onUpdate store.turn= ' + store.turn)
+    if ($(event.target).text() !== '') {
       ui.invalidMove()
+    } else if ($(event.target).text() === '') {
+      $(event.target).text(store.turn)
+      console.log('store.turn= ' + store.turn)
+      switchPlayer()
     }
     api.update(index, value)
       .then(ui.onUpdateSuccess)

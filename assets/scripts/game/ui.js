@@ -33,12 +33,16 @@ const onCreateGameFailure = function () {
   console.log('onCreateGameFailure')
 }
 
-// const winArrays = [
-//   [0,1,2],[3,4,5],[6,7,8],
-//   [0,3,6],[1,4,7],[2,5,8],
-//   [2,4,6],[0,4,8]
-// ]
+let playerMoves = 0
 
+// const checkFull = function () {
+//   for (let i = 0; i < store.game.cells; i++) {
+//     if (store.game.cells[i] === '') {
+//       return false
+//     }
+//   }
+//   return true
+// }
 
 const onUpdateSuccess = function (responseData) {
   successMessage('Updated Game!')
@@ -46,7 +50,7 @@ const onUpdateSuccess = function (responseData) {
   store.game = responseData.game
   console.log(store.game.cells)
   const checkWin = function () {
-    // const winSubArr = [0,1,2]
+    playerMoves += 1
     if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) {
       endGame()
       console.log('SubArray 012 Won!')
@@ -71,6 +75,9 @@ const onUpdateSuccess = function (responseData) {
     } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) {
       endGame()
       console.log('Sub Array 048 Won!')
+    } else if (playerMoves === 9) {
+      console.log('TIE!!!!!!!')
+      endGame()
     }
   }
   checkWin()
