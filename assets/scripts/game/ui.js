@@ -29,6 +29,7 @@ const numberOfGamesMessage = function (newText) {
 let numberOfGames = 0
 let playerMoves = 0
 let playerTurn = 0
+let gameOver = false
 
 const onCreateGameSuccess = function (responseData) {
   playerMoves = 0
@@ -71,27 +72,35 @@ const onUpdateSuccess = function (responseData) {
   const checkWin = function () {
     playerMoves += 1
     if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) {
+      gameOver = true
       endGame()
       console.log('SubArray 012 Won!')
     } else if (store.game.cells[3] !== '' && store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 345 Won!')
     } else if (store.game.cells[6] !== '' && store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 678 Won!')
     } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 036 Won!')
     } else if (store.game.cells[1] !== '' && store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 147 Won!')
     } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 258 Won!')
     } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 246 Won!')
     } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) {
+      gameOver = true
       endGame()
       console.log('Sub Array 048 Won!')
     } else if (playerMoves === 9) {
@@ -103,7 +112,7 @@ const onUpdateSuccess = function (responseData) {
 }
 
 const endGame = function () {
-  if (playerTurn === 9) {
+  if (gameOver === false) {
     successMessage('The game is a draw!')
   } else if (playerTurn % 2 === 1) {
     successMessage('Player X wins!')
