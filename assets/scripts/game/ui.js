@@ -50,7 +50,7 @@ const onCreateGameSuccess = function (responseData) {
   console.log('onCreateGameSuccess data ' + responseData)
   store.game = responseData.game
   store.games = responseData.games
-  numberOfGamesMessage('User ' + store.game.player_x.email + ' has played ' + store.game.id + ' games.')
+  numberOfGamesMessage('This game has been played ' + store.game.id + ' times.')
   console.log(store.games)
   console.log(store.game)
   console.log(store.game.player_x.email)
