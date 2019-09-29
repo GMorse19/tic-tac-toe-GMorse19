@@ -15,6 +15,16 @@ const createGame = function () {
   })
 }
 
+const getGame = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // upDateGame
 const update = function (index, value) {
   console.log('update works ' + index + ',' + value)
@@ -38,5 +48,6 @@ const update = function (index, value) {
 
 module.exports = {
   createGame,
-  update
+  update,
+  getGame
 }

@@ -21,15 +21,24 @@ const numberOfGamesMessage = function (newText) {
   $('#game-count').addClass('failure')
 }
 
-// const failureMessage2 = function (newText) {
-//   $('#message2').text(newText)
-//   $('#message2').removeClass('success')
-//   $('#message2').addClass('failure')
-// }
+const onGetSuccessMessage = function (newText) {
+  $('#counter').text(newText)
+  $('#counter').removeClass('failure')
+  $('#counter').addClass('success')
+}
+
+const onGetFailureMessage = function (newText) {
+  $('#counter').text(newText)
+  $('#counter').removeClass('failure')
+  $('#counter').addClass('success')
+}
+
 let numberOfGames = 0
 let playerMoves = 0
 let playerTurn = 0
 let gameOver = false
+let playerXwins = 0
+let playerOwins = 0
 
 const onCreateGameSuccess = function (responseData) {
   playerMoves = 0
@@ -40,7 +49,9 @@ const onCreateGameSuccess = function (responseData) {
   successMessage("Player X's move")
   console.log('onCreateGameSuccess data ' + responseData)
   store.game = responseData.game
-  numberOfGamesMessage('User ' + store.game.player_x.email + ' has played ' + store.count + ' games.')
+  store.games = responseData.games
+  numberOfGamesMessage('User ' + store.game.player_x.email + ' has played ' + store.game.id + ' games.')
+  console.log(store.games)
   console.log(store.game)
   console.log(store.game.player_x.email)
 }
@@ -49,14 +60,6 @@ const onCreateGameFailure = function () {
   failureMessage('⚠️ABORT! ABORT!⚠️')
   console.log('onCreateGameFailure')
 }
-// const checkFull = function () {
-//   for (let i = 0; i < store.game.cells; i++) {
-//     if (store.game.cells[i] === '') {
-//       return false
-//     }
-//   }
-//   return true
-// }
 
 const onUpdateSuccess = function (responseData) {
   playerTurn += 1
@@ -65,8 +68,9 @@ const onUpdateSuccess = function (responseData) {
   } else {
     successMessage("Player O's move")
   }
-  // console.log('onUpdateSuccess data ' + responseData)
+
   store.game = responseData.game
+  console.log(store.game.id)
   console.log(store.game.cells)
   console.log(store.game.player_x.email)
   const checkWin = function () {
@@ -116,12 +120,13 @@ const endGame = function () {
     successMessage('The game is a draw!')
   } else if (playerTurn % 2 === 1) {
     successMessage('Player X wins!')
+    playerXwins += 1
   } else if (playerMoves % 2 === 0) {
     successMessage('Player O wins!')
+    playerOwins += 1
   }
-  // console.log('Game Over!')
   store.game.over = true
-  // console.log(store.game.over)
+  console.log(store.game.over)
 }
 
 const onUpdateFailure = function () {
@@ -133,11 +138,22 @@ const invalidMove = function () {
   failureMessage('Invalid Move!!')
 }
 
+const onGetGameSuccess = function (responseData) {
+  onGetSuccessMessage(store.game.player_x.email + ' you have played ' + responseData.games.length + ' games.')
+}
+
+const onGetGameFailure = function () {
+  onGetFailureMessage('GET ABORT!⚠️')
+  console.log('onGetGameFailure')
+}
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
   onUpdateSuccess,
   onUpdateFailure,
   invalidMove,
-  numberOfGamesMessage
+  numberOfGamesMessage,
+  onGetGameSuccess,
+  onGetGameFailure
 }

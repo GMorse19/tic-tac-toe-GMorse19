@@ -40,7 +40,15 @@ const onUpdate = function (event) {
   switchPlayer()
 }
 
+const onGetGame = function (event) {
+  event.preventDefault()
+  api.getGame()
+    .then(ui.onGetGameSuccess)
+    .catch(ui.onGetGameFailure)
+}
+
 module.exports = {
   onCreateGame,
-  onUpdate
+  onUpdate,
+  onGetGame
 }

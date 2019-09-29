@@ -13,6 +13,11 @@ const failureMessage = function (newText) {
   $('#message').removeClass('success')
   $('#message').addClass('failure')
 }
+const signUpSuccessMessage = function (newText) {
+  $('#sign-in-message').text(newText)
+  $('#sign-in-message').removeClass('success')
+  $('#sign-in-message').addClass('failure')
+}
 
 const signUpFailureMessage = function (newText) {
   $('#sign-in-message').text(newText)
@@ -29,8 +34,8 @@ const onSignInFailureMessage = function (newText) {
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
   $('.hide-signUp').hide()
-  successMessage('Signed up successfully!')
-  signUpFailureMessage('')
+  // successMessage('Signed up successfully!')
+  signUpSuccessMessage('Signed up successfully!')
 }
 
 const onSignUpFailure = function () {
@@ -43,10 +48,10 @@ const onSignInSuccess = function (responseData) {
   $('.hide-signUp').hide()
   $('.hide-signIn').hide()
   $('.show-signOut').show()
-  successMessage('You are signed in')
   signUpFailureMessage('')
   console.log('Response data is ' + responseData)
   store.user = responseData.user
+  successMessage('You are now signed in!')
   console.log('./store is ' + store)
 }
 
@@ -66,7 +71,7 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  successMessage('Signed out successfully!')
+  signUpSuccessMessage('Thanks for playing!')
 }
 
 const onSignOutFailure = function () {
