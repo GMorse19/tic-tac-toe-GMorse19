@@ -25,6 +25,7 @@ const onGetSuccessMessage = function (newText) {
   $('#counter').text(newText)
   $('#counter').removeClass('failure')
   $('#counter').addClass('success')
+  $('#counter').show()
 }
 
 const onGetFailureMessage = function (newText) {
@@ -37,28 +38,20 @@ let numberOfGames = 0
 let playerMoves = 0
 let playerTurn = 0
 let gameOver = false
-let playerXwins = 0
-let playerOwins = 0
 
 const onCreateGameSuccess = function (responseData) {
   playerMoves = 0
   playerTurn = 0
   numberOfGames += 1
   store.count = numberOfGames
-  console.log('games: ' + store.count)
   successMessage("Player X's move")
-  console.log('onCreateGameSuccess data ' + responseData)
   store.game = responseData.game
   store.games = responseData.games
-  numberOfGamesMessage('This game has been played ' + store.game.id + ' times.')
-  console.log(store.games)
-  console.log(store.game)
-  console.log(store.game.player_x.email)
+  numberOfGamesMessage('This Tic-Tac-Toe game has been played ' + store.game.id + ' times.')
 }
 
 const onCreateGameFailure = function () {
-  failureMessage('⚠️ABORT! ABORT!⚠️')
-  console.log('onCreateGameFailure')
+  failureMessage('⚠️ABORT! A new game was not created! ABORT!⚠️')
 }
 
 const onUpdateSuccess = function (responseData) {
@@ -70,45 +63,33 @@ const onUpdateSuccess = function (responseData) {
   }
 
   store.game = responseData.game
-  console.log(store.game.id)
-  console.log(store.game.cells)
-  console.log(store.game.player_x.email)
   const checkWin = function () {
     playerMoves += 1
     if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) {
       gameOver = true
       endGame()
-      console.log('SubArray 012 Won!')
     } else if (store.game.cells[3] !== '' && store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 345 Won!')
     } else if (store.game.cells[6] !== '' && store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 678 Won!')
     } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 036 Won!')
     } else if (store.game.cells[1] !== '' && store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 147 Won!')
     } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 258 Won!')
     } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 246 Won!')
     } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) {
       gameOver = true
       endGame()
-      console.log('Sub Array 048 Won!')
     } else if (playerMoves === 9) {
-      console.log('TIE!!!!!!!')
       endGame()
     }
   }
@@ -120,18 +101,14 @@ const endGame = function () {
     successMessage('The game is a draw!')
   } else if (playerTurn % 2 === 1) {
     successMessage('Player X wins!')
-    playerXwins += 1
   } else if (playerMoves % 2 === 0) {
     successMessage('Player O wins!')
-    playerOwins += 1
   }
   store.game.over = true
-  console.log(store.game.over)
 }
 
 const onUpdateFailure = function () {
   failureMessage('Bad Update ⚠️ABORT! ABORT!⚠️')
-  console.log('onUpdateFailure')
 }
 
 const invalidMove = function () {
@@ -143,8 +120,7 @@ const onGetGameSuccess = function (responseData) {
 }
 
 const onGetGameFailure = function () {
-  onGetFailureMessage('GET ABORT!⚠️')
-  console.log('onGetGameFailure')
+  onGetFailureMessage('GET Game failure! ⚠️ABORT!⚠️')
 }
 
 module.exports = {

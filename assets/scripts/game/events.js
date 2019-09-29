@@ -1,4 +1,5 @@
 'use strict'
+
 const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')

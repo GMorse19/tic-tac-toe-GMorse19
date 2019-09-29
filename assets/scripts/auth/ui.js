@@ -34,13 +34,12 @@ const onSignInFailureMessage = function (newText) {
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
   $('.hide-signUp').hide()
-  // successMessage('Signed up successfully!')
   signUpSuccessMessage('Signed up successfully!')
 }
 
 const onSignUpFailure = function () {
   $('#sign-up').trigger('reset')
-  signUpFailureMessage('Sign Up Failure ⚠️ABORT! ABORT!⚠️')
+  signUpFailureMessage('⚠️You failed to sign up! ⚠️')
 }
 
 const onSignInSuccess = function (responseData) {
@@ -49,15 +48,13 @@ const onSignInSuccess = function (responseData) {
   $('.hide-signIn').hide()
   $('.show-signOut').show()
   signUpFailureMessage('')
-  console.log('Response data is ' + responseData)
   store.user = responseData.user
   successMessage('You are now signed in!')
-  console.log('./store is ' + store)
 }
 
 const onSignInFailure = function () {
   $('#sign-in').trigger('reset')
-  onSignInFailureMessage('Sign In Failure ⚠️RUN!!!⚠️')
+  onSignInFailureMessage('⚠️You failed to sign in! ⚠️')
 }
 
 const onChangePasswordSuccess = function () {
@@ -67,15 +64,17 @@ const onChangePasswordSuccess = function () {
 
 const onChangePasswordFailure = function () {
   $('#change-password').trigger('reset')
-  failureMessage('PassWord Change Failed 🔥THE END IS NIGH!!🔥')
+  failureMessage('🔥🔥PassWord Change Failed 🔥🔥')
 }
 
 const onSignOutSuccess = function () {
   signUpSuccessMessage('Thanks for playing!')
+  $('#counter').hide()
 }
 
 const onSignOutFailure = function () {
-  failureMessage('Sign Out Failed ⚠️ABORT! ABORT!⚠️')
+  failureMessage('⚠️You did not sign out successfully!⚠️')
+  $('#counter').hide()
 }
 
 module.exports = {

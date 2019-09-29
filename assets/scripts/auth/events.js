@@ -37,8 +37,6 @@ const onSignOut = function () {
   $('.hide-signIn').show()
   $('.show-signOut').hide()
   $('.show-gameBoard').hide()
-  // const form = event.target
-  // const formData = getFormFields(form)
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)

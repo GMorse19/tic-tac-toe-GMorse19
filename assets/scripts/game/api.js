@@ -1,6 +1,5 @@
 'use strict'
 
-// const getFormFields = require('../../../lib/get-form-fields.js')
 const config = require('../config')
 const store = require('../store')
 
@@ -25,9 +24,7 @@ const getGame = function () {
   })
 }
 
-// upDateGame
 const update = function (index, value) {
-  console.log('update works ' + index + ',' + value)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + `/games/${store.game.id}`,
