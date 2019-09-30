@@ -17,9 +17,9 @@
           <div class="hide-signUp">
                 <h2>Sign Up</h2>
                 <form id="sign-up">
-                  <input type="email" name="credentials[email]" placeholder="Enter email...">
-                  <input type="password" name="credentials[password]" placeholder="Enter Password">
-                  <input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again">
+                  <input required type="email" name="credentials[email]" placeholder="Enter email...">
+                  <input required type="password" name="credentials[password]" placeholder="Enter Password">
+                  <input required type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again">
                   <button>Sign UP</button>
                   <h2 id="sign-up-message"></h2>
                 </form>
@@ -27,8 +27,8 @@
             <div class="hide-signIn">
                 <h2>Sign In</h2>
                 <form id="sign-in">
-                  <input type="email" name="credentials[email]" placeholder="Enter email...">
-                  <input type="password" name="credentials[password]" placeholder="Enter Password">
+                  <input required type="email" name="credentials[email]" placeholder="Enter email...">
+                  <input required type="password" name="credentials[password]" placeholder="Enter Password">
                   <button>Sign In</button>
                   <h2 id="sign-in-message"></h2>
                 </form>
@@ -36,8 +36,8 @@
 <div class="show-signOut">
       <h3>Change Password</h3>
           <form id="change-password">
-            <input type="password" name="passwords[old]" placeholder="Enter Old Password">
-            <input type="password" name="passwords[new]" placeholder="Enter New Password">
+            <input required type="password" name="passwords[old]" placeholder="Enter Old Password">
+            <input required type="password" name="passwords[new]" placeholder="Enter New Password">
             <button>Change Password</button>
           </form>
       <hr>
