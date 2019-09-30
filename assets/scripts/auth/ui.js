@@ -49,7 +49,7 @@ const onSignInSuccess = function (responseData) {
   $('.show-signOut').show()
   signUpFailureMessage('')
   store.user = responseData.user
-  successMessage('You are now signed in!')
+  successMessage('You are now signed in! ' + store.user.email)
 }
 
 const onSignInFailure = function () {
@@ -68,7 +68,9 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  signUpSuccessMessage('Thanks for playing!')
+  $('#sign-up').trigger('reset')
+  $('#change-password').trigger('reset')
+  signUpSuccessMessage('You have signed out. Thanks for playing!')
   $('#counter').hide()
 }
 

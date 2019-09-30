@@ -36,7 +36,7 @@ const onUpdate = function (event) {
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
   } else {
-    ui.invalidMove()
+    ui.invalidGameOver()
   }
   switchPlayer()
 }

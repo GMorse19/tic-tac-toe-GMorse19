@@ -48,7 +48,7 @@ const onCreateGameSuccess = function (responseData) {
   successMessage("Player X's move")
   store.game = responseData.game
   store.games = responseData.games
-  numberOfGamesMessage('This Tic-Tac-Toe game has been played ' + store.game.id + ' times.')
+  numberOfGamesMessage('Tic-Tac-Toe has been played ' + store.game.id + ' times by SEI-05')
 }
 
 const onCreateGameFailure = function () {
@@ -116,6 +116,10 @@ const invalidMove = function () {
   failureMessage('Invalid Move!!')
 }
 
+const invalidGameOver = function () {
+  failureMessage('The Game is Over! Start a new game!')
+}
+
 const onGetGameSuccess = function (responseData) {
   onGetSuccessMessage(store.game.player_x.email + ' you have played ' + responseData.games.length + ' games.')
 }
@@ -132,5 +136,6 @@ module.exports = {
   invalidMove,
   numberOfGamesMessage,
   onGetGameSuccess,
-  onGetGameFailure
+  onGetGameFailure,
+  invalidGameOver
 }

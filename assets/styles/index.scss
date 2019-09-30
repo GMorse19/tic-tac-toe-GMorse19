@@ -1,22 +1,60 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-$alt-color: $cyan;
-$body-bg-color: $gray-200;
+$alt-color: #DF1F2D;
+$body-bg-color: #447BBE;
 $font-color: $light;
+
+h1 {
+  font-weight: bolder;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #B11313;
+}
+
+button {
+  color: #B11313;
+  background-color: #447BBE;
+  border-radius: 90px;
+  border-color: black;
+}
 
 body {
   background-color: $body-bg-color;
   text-align: center;
+  color: black;
 }
 
-div {
-  align-items: center;
+.form-field {
+  color: black;
+	width: 350px;
+	padding:10px;
+	margin:20px auto;
+	background: #B11313;
+	border-radius: 90px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
+
+.form-field .inner-wrap{
+	padding: 10px;
+	background: #2B3784;
+	border-radius: 9px;
+}
+
+input[type="email"],
+input[type="password"] {
+  background-color: rgba(223, 31, 45, 0.5);
+}
+
 .box {
   align-items: center;
   background-color: $secondary;
-  border: 1px solid $white;
+  border: 1px solid #2B3784;
+  border-width: medium;
+  border-radius: 50px;
   color: $font-color;
   display: flex;
   height: 80px;
@@ -26,7 +64,10 @@ div {
 .row {
   display: flex;
   justify-content: center;
+
 }
 .alt-color {
   background-color: $alt-color;
+  color: #2B3784;
+  font-size: 6vmin;
 }
