@@ -43,6 +43,7 @@ const onCreateGameSuccess = function (responseData) {
   playerMoves = 0
   playerTurn = 0
   numberOfGames += 1
+  gameOver = false
   store.count = numberOfGames
   successMessage("Player X's move")
   store.game = responseData.game
