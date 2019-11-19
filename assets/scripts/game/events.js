@@ -4,9 +4,14 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 
+// const indexChoices = ["0","1","2","3","4","5","6","7","8"]
+const takenIndex = []
+// let openSpace = false
+
 const onCreateGame = function (event) {
   event.preventDefault()
   $('.show-gameBoard').show()
+  $('#comp-move').show()
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
@@ -22,8 +27,24 @@ const switchPlayer = function () {
   }
 }
 
+const onCompMove = function (event) {
+  event.preventDefault()
+  const compChoices = store.game.cells
+  const choices = []
+  for (let i = 0; i < compChoices.length; i++) {
+    if (compChoices[i] === '') {
+      choices.push(i)
+    }
+  }
+  const compChoice = choices[Math.floor(Math.random() * choices.length)]
+  store.compChoice = compChoice
+  console.log(compChoice)
+  $(`.box[data-index=${compChoice}]`).trigger('click')
+}
+
 const onUpdate = function (event) {
   event.preventDefault()
+  console.log(event.target)
   if (store.game.over === false) {
     if ($(event.target).text() !== '') {
       return ui.invalidMove()
@@ -32,6 +53,8 @@ const onUpdate = function (event) {
     }
     const index = $(event.target).attr('data-index')
     const value = store.turn
+    takenIndex.push(index)
+    // console.log(takenIndex)
     api.update(index, value)
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
@@ -51,5 +74,6 @@ const onGetGame = function (event) {
 module.exports = {
   onCreateGame,
   onUpdate,
-  onGetGame
+  onGetGame,
+  onCompMove
 }

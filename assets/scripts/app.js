@@ -13,4 +13,5 @@ $(() => {
   $('#new-game').on('click', gameEvents.onCreateGame)
   $('.box').on('click', gameEvents.onUpdate)
   $('.counter').on('click', gameEvents.onGetGame)
+  $('#comp-move').on('click', gameEvents.onCompMove)
 })

@@ -121,7 +121,7 @@ const invalidGameOver = function () {
 }
 
 const onGetGameSuccess = function (responseData) {
-  onGetSuccessMessage(store.game.player_x.email + ' you have played ' + responseData.games.length + ' games.')
+  onGetSuccessMessage(store.game.player_x.email + ' you have played ' + (responseData.games.length - 1) + ' games.')
 }
 
 const onGetGameFailure = function () {

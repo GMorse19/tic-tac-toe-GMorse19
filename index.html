@@ -34,7 +34,7 @@
                     <form id="sign-in">
                       <input required type="email" name="credentials[email]" placeholder="Enter email...">
                       <input required type="password" name="credentials[password]" placeholder="Enter Password">
-                <br>
+                    <br>
                       <button>Sign In</button>
                       <h3 id="sign-in-message"></h3>
                     </form>
@@ -49,56 +49,58 @@
           </div>
         </div>
       </section>
-          <section>
+        <section>
           <div class="show-signOut">
-
-          <div class="form-field">
-            <div class="inner-wrap">
-              <h3 id="message"></h3>
-                <form id="new-game">
-                  <button class="new-out">New Game</button>
-                </form>
-            </div>
-          <br>
-            <div class="show-gameBoard">
+            <div class="form-field">
               <div class="inner-wrap">
-                <form id="gameBoard">
-                  <div class="container">
-                    <div class="row">
-                          <button data-index="0" class="col-2 box alt-color"></button>
-                          <button data-index="1" class="col-2 box alt-color"></button>
-                          <button data-index="2" class="col-2 box alt-color"></button>
-                    </div>
-                    <div class="row">
-                          <button data-index="3" class="col-2 box alt-color"></button>
-                          <button data-index="4" class="col-2 box alt-color"></button>
-                          <button data-index="5" class="col-2 box alt-color"></button>
-                    </div>
-                    <div class="row">
-                          <button data-index="6" class="col-2 box alt-color"></button>
-                          <button data-index="7" class="col-2 box alt-color"></button>
-                          <button data-index="8" class="col-2 box alt-color"></button>
-                    </div>
-                  </div>
-                </form>
+                <h3 id="message"></h3>
+                  <form id="new-game">
+                    <button class="new-out">New Game</button>
+                  </form>
+                  <form id="comp-move">
+                    <button class="comp-move">Computer Move</button>
+                  </form>
               </div>
             <br>
-              <div class="inner-wrap">
-                <button class="counter">Update Game Counter</button>
-                  <p id="counter"></p>
-                  <p id="game-count"></p>
-              </div>
-            </div>
-          <br>
-            <div class="show-signOut">
+              <div class="show-gameBoard">
                 <div class="inner-wrap">
-                  <form id="sign-out">
-                    <button class="new-out">Sign Out</button>
+                  <form id="gameBoard">
+                    <div class="container">
+                      <div class="row">
+                            <button data-index="0" class="col-2 box alt-color"></button>
+                            <button data-index="1" class="col-2 box alt-color"></button>
+                            <button data-index="2" class="col-2 box alt-color"></button>
+                      </div>
+                      <div class="row">
+                            <button data-index="3" class="col-2 box alt-color"></button>
+                            <button data-index="4" class="col-2 box alt-color"></button>
+                            <button data-index="5" class="col-2 box alt-color"></button>
+                      </div>
+                      <div class="row">
+                            <button data-index="6" class="col-2 box alt-color"></button>
+                            <button data-index="7" class="col-2 box alt-color"></button>
+                            <button data-index="8" class="col-2 box alt-color"></button>
+                      </div>
+                    </div>
                   </form>
                 </div>
+              <br>
+                <div class="inner-wrap">
+                  <button class="counter">Update Game Counter</button>
+                    <p id="counter"></p>
+                    <p id="game-count"></p>
+                </div>
+              </div>
+            <br>
+              <div class="show-signOut">
+                  <div class="inner-wrap">
+                    <form id="sign-out">
+                      <button class="new-out">Sign Out</button>
+                    </form>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </body>
     </html>
