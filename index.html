@@ -13,13 +13,13 @@
     </head>
     <body>
       <header>
-        <h1>Tic-Tac-Toe</h1>
+        <!-- <h1>Tic-Tac-Toe</h1> -->
       </header>
         <section id="forms">
           <div class="form-field">
             <div class="inner-wrap">
+              <h1>Tic-Tac-Toe</h1>
               <div class="hide-signUp">
-                <h4>Sign Up</h4>
                     <form id="sign-up" class="forms">
                       <input required type="email" name="credentials[email]" placeholder="Enter email...">
                       <input required type="password" name="credentials[password]" placeholder="Enter Password">
@@ -27,6 +27,7 @@
                   <br>
                       <button>Sign UP</button>
                       <h3 id="sign-up-message"></h3>
+                      <button type="button" id="show-signin">Sign In</button>
                     </form>
               </div>
                 <div class="hide-signIn">
@@ -37,9 +38,11 @@
                     <br>
                       <button>Sign In</button>
                       <h3 id="sign-in-message"></h3>
+                      <button type="button" id="show-signup">Sign Up</button>
                     </form>
               </div>
             <div class="show-signOut">
+              <button class="focus" id="show-changePassword">Change Password</button>
               <form id="change-password">
                 <input required type="password" name="passwords[old]" placeholder="Enter Old Password">
                 <input required type="password" name="passwords[new]" placeholder="Enter New Password">
@@ -55,38 +58,38 @@
               <div class="inner-wrap">
                 <h3 id="message"></h3>
                   <form id="new-game">
-                    <button class="new-out">New Game</button>
-                  </form>
-                  <form id="comp-move">
-                    <button class="comp-move">Computer Move</button>
+                    <button class="new-out focus">New Game</button>
                   </form>
               </div>
             <br>
               <div class="show-gameBoard">
                 <div class="inner-wrap">
+                  <form id="comp-move">
+                    <button class="comp-move focus">Computer Move</button>
+                  </form>
                   <form id="gameBoard">
                     <div class="container">
                       <div class="row">
-                            <button data-index="0" class="col-2 box alt-color"></button>
-                            <button data-index="1" class="col-2 box alt-color"></button>
-                            <button data-index="2" class="col-2 box alt-color"></button>
+                            <button data-index="0" class="focus col-2 box alt-color"></button>
+                            <button data-index="1" class="focus col-2 box alt-color"></button>
+                            <button data-index="2" class="focus col-2 box alt-color"></button>
                       </div>
                       <div class="row">
-                            <button data-index="3" class="col-2 box alt-color"></button>
-                            <button data-index="4" class="col-2 box alt-color"></button>
-                            <button data-index="5" class="col-2 box alt-color"></button>
+                            <button data-index="3" class="focus col-2 box alt-color"></button>
+                            <button data-index="4" class="focus col-2 box alt-color"></button>
+                            <button data-index="5" class="focus col-2 box alt-color"></button>
                       </div>
                       <div class="row">
-                            <button data-index="6" class="col-2 box alt-color"></button>
-                            <button data-index="7" class="col-2 box alt-color"></button>
-                            <button data-index="8" class="col-2 box alt-color"></button>
+                            <button data-index="6" class="focus col-2 box alt-color"></button>
+                            <button data-index="7" class="focus col-2 box alt-color"></button>
+                            <button data-index="8" class="focus col-2 box alt-color"></button>
                       </div>
                     </div>
                   </form>
                 </div>
               <br>
                 <div class="inner-wrap">
-                  <button class="counter">Update Game Counter</button>
+                  <button class="counter focus">Update Game Counter</button>
                     <p id="counter"></p>
                     <p id="game-count"></p>
                 </div>

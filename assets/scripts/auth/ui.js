@@ -59,6 +59,8 @@ const onSignInFailure = function () {
 
 const onChangePasswordSuccess = function () {
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
+  $('#show-changePassword').show()
   successMessage('Changed Password successfully!')
 }
 
@@ -72,6 +74,8 @@ const onSignOutSuccess = function () {
   $('#change-password').trigger('reset')
   signUpSuccessMessage('You have signed out. Thanks for playing!')
   $('#counter').hide()
+  $('#sign-up').hide()
+  $('#show-signin').hide()
 }
 
 const onSignOutFailure = function () {

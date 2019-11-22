@@ -6,6 +6,7 @@ $body-bg-color: #447BBE;
 $font-color: $light;
 
 h1 {
+  font-family: 'Corben', Georgia, Times, serif;
   font-weight: bolder;
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: #B11313;
@@ -16,7 +17,14 @@ button {
   background-color: #447BBE;
   border-radius: 90px;
   border-color: black;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #2B3784;
+  }
 }
+
 
 body {
   background-color: $body-bg-color;
@@ -46,7 +54,9 @@ body {
 
 input[type="email"],
 input[type="password"] {
-  background-color: rgba(223, 31, 45, 0.5);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
 }
 
 .box {
@@ -59,6 +69,10 @@ input[type="password"] {
   display: flex;
   height: 80px;
   justify-content: center;
+}
+
+.box:hover {
+  background-color: #B11313;
 }
 
 .row {
