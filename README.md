@@ -2,6 +2,14 @@
 
 This is my very first project as a developer. The game itself may seem simple, but road to creating this application has had its fair share of bumps.
 
+### Game Board View
+
+![GameImage](./assets/images/TicTacToe.png)
+
+## Important Links
+
+[Tic Tac Toe Deployed Site](https://gmorse19.github.io/tic-tac-toe-GMorse19/)
+
 ## Resources
 
 I relied on a number of tools to build my project. Mostly, I referred to documents provided by a full immersive program I am attending at General Assembly in Boston MA.
@@ -12,11 +20,23 @@ I used the jquery library and bootstrap to help build some of the functions and 
 
 Some of my greatest resources were my fellow cohorts and my instructors. Words of encouragement go a long way!
 
-# Planning
+## Planning
 
 I attempted to take a very methodical approach to this project.
 
-I began with a wire frame outline of what I wanted the UI to appear and the proceeded to draw up my user stories. These two tools helped me to map out the functionality I would need to begin my first step, which would be setting up a directory structure. I wanted to keep things as modular as possible.
+I began with a wire frame outline of how I wanted the UI to appear and then proceeded to draw up my user stories. These two tools helped me to map out the functionality I would need to begin my first step, which would be setting up a directory structure. I wanted to keep things as modular as possible.
+
+#### User Stories
+
+- As a user, I want to sign-up and sign-in.
+- As a user, I want to begin a game.
+- As a user, I want to choose which space to place a marker.
+- As a user, I expect to see how many games I've played.
+- As a user, I expect to sign-out.
+
+#### Wire Frame
+
+![Image](./assets/images/tic-wireframe.png)
 
 My next step was to create my html. Using my wire frame as a guide, I mapped out the form fields I would need and created a game board using bootstrap.
 
