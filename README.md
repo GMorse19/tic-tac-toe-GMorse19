@@ -57,8 +57,3 @@ I'd like to count the amount of wins a user has.
 I'd like to create a CPU player option.
 
 I'd like to make it look a little nicer.
-
-## Links
-
-- [Wire frame] (https://i.imgur.com/pEelhnU.jpg)
-- [User stories] (https://i.imgur.com/reFPb4J.jpg)
